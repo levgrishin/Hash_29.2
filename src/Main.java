@@ -10,6 +10,20 @@ public class Main {
             }
         hs = hs % mod;
         System.out.println(hs);
+
+        //hash 2 array
+        int[][] matrArray = {
+                { 6, 8, 5, 4 },
+                { 7, 12, 5, 7 },
+                { 12, 8, 9, 1 } };
+
+        int p0 = 6;
+        int q0 = 7;
+        int mod0 = 1000;
+
+        System.out.println("Результат: " + matrHashCalc(matrArray,p0,q0,mod0));
+
+
     }
 
     public static int signNumber(String s, int i){
@@ -27,5 +41,17 @@ public class Main {
         }
         return n;
     }
+
+    public static int matrHashCalc(int[][] matr, int p, int q ,int mod) {
+        int hashResult = 0;
+            for (int i = 0;i < matr.length;i++){
+                for (int j = 0;j < matr[i].length;j++){
+                    hashResult += Math.pow(p,i) * Math.pow(q,j) * matr[i][j];
+                }
+            }
+            hashResult = hashResult % mod;
+        return hashResult;
+    }
+
 
 }
